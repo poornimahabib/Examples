@@ -36,3 +36,5 @@ var server=http.createServer(function(req,res){
         sequ.getByProperty("course",condition)
     }
 })
+server.listen(3001)
+console.log("listening")
