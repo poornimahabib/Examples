@@ -1,0 +1,17 @@
+[
+    {
+    "name":"abc",
+    "location":"hub"
+
+    },
+    {
+    "name":"pqr",
+    "location":"hub"
+
+    },
+    {
+        "name":"xyz",
+        "location":"hub"
+    
+    }
+]

@@ -1,0 +1,436 @@
+var fs=require('fs')
+
+var verifyTag=function(input){
+    // console.log(input)
+    input=(input.toString()).split(",")
+    var res=(input.toString()).split(" ")
+    //console.log(res)
+    //input=(input.toString()).substring(0, input.indexOf(' '))
+    for(i=0;i<res.length;i++){
+        //console.log("hdjbfff",res[i])
+        switch(res[i]){
+            case '<?xml':
+                console.log("<?xml");
+                break;
+            case '<table':
+                console.log("<table");
+                break;
+            case '<row>,':
+                console.log("<row");
+                break;
+            case '<column>,':
+                console.log("<column");
+                break;
+            case '</table>':
+                console.log("</table");
+                break;
+            case '</row>,':
+                console.log("</row");
+                break;
+            case '</column>,':
+                console.log("</column");
+                break;
+            case '<image':
+                console.log("<img");
+        }
+        // for(var j=1;j<=i;j++){
+        //     console.log("hhhhh",res[j])
+        // }
+    }
+    
+}
+
+fs.readFile("./lipsi.html","utf8",function(err,data){
+    if(err) throw err;
+    data=data.replace(/\n/g,", ");
+    data=data.replace(/  /g,"");
+    //console.log(data)
+    verifyTag(data)
+})
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+userinfo.js
+var DBWrapper = require('node-dbi').DBWrapper; 
+// var DBExpr = require('node-dbi').DBExpr; 
+
+// var connectDB=function(dbName){
+//     var dbConnectionConfig = { 
+//         host: 'localhost', 
+//         user: 'root', 
+//         password: 'P@ssw0rd',
+//         database:dbName 
+//     };
+//     dbWrapper = new DBWrapper( 'mysql', dbConnectionConfig );
+//     dbWrapper.connect(function(err){
+//         if(err) {
+//             console.log("Invalid Database Name")
+//         }else{
+//             console.log("connected",dbName)
+//         }
+
+//     });
+// }
+
+// var verifyInDb=function(tabName,data){
+//     var id;
+//     var select=dbWrapper.getSelect().from(tabName,'uid').where("phoneNum=?",data.phoneNum)
+//     dbWrapper.fetchAll(select,function(err,result){
+//         if(err) throw err; 
+//         if(result.length>=1){
+//             console.log("User already exists",id)
+//             dbWrapper.close(function(err){
+//                 if(err) throw err;
+//                 console.log("Connection closed successfully")
+//             })
+//         }
+//         else{
+//             dbWrapper.insert(tabName, data , function(err) {
+//                 if(  err ) throw err;
+//                 console.log( 'ID : ' + dbWrapper.getLastInsertId() );
+//             }); 
+//             dbWrapper.close(function(err){
+//                 if(err) throw err;
+//                 console.log("Connection closed successfully")
+//             })  
+//         }
+//     })
+// }
+// module.exports={
+//     verify:function(dbName,tabName,data){        
+//         connectDB(dbName)
+//         verifyInDb(tabName,data)  
+//     }
+// }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+ticketinfo.js
+var DBWrapper = require('node-dbi').DBWrapper; 
+// var DBExpr = require('node-dbi').DBExpr; 
+
+// var connectDB=function(dbName){
+//     var dbConnectionConfig = { 
+//         host: 'localhost', 
+//         user: 'root', 
+//         password: 'P@ssw0rd',
+//         database:dbName 
+//     };
+//     dbWrapper = new DBWrapper( 'mysql', dbConnectionConfig );
+//     dbWrapper.connect(function(err){
+//         if(err) {
+//             console.log("Invalid Database Name")
+//         }else{
+//             console.log("connected",dbName)
+//         }
+        
+//     });
+// }
+
+// var insertTicket=function(){
+//     dbWrapper.fetchAll("SELECT uid from ticketUser WHERE uid=?",[data.userId],function(err,result){
+//         if(err) throw err;
+//         else if(result.length=1){
+//             data.push(status);
+//             dbWrapper.insert(tabName, data , function(err) {
+//                 if(  err ) {
+//                     /**Error if there is no user id exists in ticketUser table  */
+//                     console.log("Failed insertion");
+//                 }
+//                 else{
+//                     var status={"status":1}
+//                     console.log( 'ID : ' + dbWrapper.getLastInsertId() );
+//                     dbWrapper.update(tabName,status,getLastInsertId(),function(err){
+//                         if(err) throw err;
+//                         console.log("Status updated successfully");
+//                     })
+//                 }
+//             });
+//             dbWrapper.close(function(err){
+//                 if(err) throw err;
+//                 console.log("Connection closed successfully")
+//             })
+//         }else{
+//             console.log("failed")
+//         }
+//     })
+// }
+
+// var verifyInDb=function(tabName,data){
+//     var select=dbWrapper.getSelect().from(tabName,'ticketId','userId').where("productNum=?",data.productNum).where("problem=?",data.problem)
+//     dbWrapper.fetchAll(select,function(err,result){
+//         if(err) {
+//             console.log("Error",err); 
+//         }else if(result.length>=1){
+//             console.log("Ticket already exists")
+//             //updateTicketStatus();
+//             dbWrapper.close(function(err){
+//                 if(err) throw err;
+//                 console.log("Connection closed successfully")
+//             })
+//         }
+//         else{
+//             insertTicket(tabName,data)
+//         }
+//     })
+// }
+// module.exports={
+//     verify:function(dbName,tabName,data){        
+//         connectDB(dbName)
+//         verifyInDb(tabName,data)  
+//     }
+// }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+validation.js
+var validator=require('validator');
+// var args=require('yargs').argv;
+
+// if(args.cmd==='userInfo'){
+//     if((validator.isEmail(args.email))&&(validator.isMobilePhone(args.phone.toString(),'en-IN'))){
+//         console.log("information is correct");
+//         var info={"emailId":args.email,"phoneNum":args.phone}
+//         var userInfo=require("./userInfo.js");
+//         var res= new userInfo.verify("multiTicketDB","ticketUser",info);   //verify(database Name,tableName,data)
+//         console.log("Result is ",res)
+//     }else{
+//         console.log("Invalid information");
+//     }  
+// }
+// else if(args.cmd==='ticketInfo'){
+//     if((validator.isNumeric(args.productnum.toString()))&&(validator.isAlpha(args.location))&&(validator.isAlpha(args.problem))&&(validator.isNumeric(args.userId.toString()))){
+//         console.log("information is correct");
+//         var info={"productNum":args.productnum,"location":args.location,"problem":args.problem,"userId":args.userId}
+//         var ticketInfo=require("./ticketInfo.js");
+//         var res1=new ticketInfo.verify("multiTicketDB","tickets",info);
+//         console.log("Result is",res1)
+//     }else{
+//         console.log("Invalid information");
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var fs=require('fs')
+//var HashMap=require('hashmap')
+var i;
+var input=[];
+var inputOut=[],inputOut1=[];
+
+var verifyTag=function(inputData){
+    //console.log(inputData)
+    inputOut.push(inputData)
+    inputOut=(inputOut.toString()).trim().split(/[" "\n]/g)
+    inputOut1.push((inputOut.toString()).replace(/,,/g,"").trim())
+    console.log(inputOut1[0])
+     for(i=0;i<inputOut1.length;i++){
+         console.log("hhhhhh",inputOut1[0])
+    }
+
+}
+
+fs.readFile("./lipsi.html",'utf8',function(err,data){
+    if(err) throw err;
+    data=data.split("\n")
+    input.push(data)
+    verifyTag(input)
+})
+*/
+switch(res[i]){
+            case '<?xml':
+                console.log("<?xml");
+                break;
+            case '<table':
+                console.log("<table");
+                break;
+            case '<row>':
+                console.log("<row");
+                break;
+            case '<column>':
+                console.log("<column");
+                break;
+            case '</table>':
+                console.log("</table");
+                break;
+            case '</row>':
+                console.log("</row");
+                break;
+            case '</column>':
+                console.log("</column");
+                break;
+            case '<image':
+                console.log("<img");
+        }
+        // for(var j=1;j<=i;j++){
+        //     console.log("hhhhh",res[j])
+        // }
+
+
+
+        var verifyTag=function(input){
+    input=(input.toString()).split(",")
+    var res=(input.toString()).split(" ")
+    console.log(res)
+    for(i=0;i<res.length;i++){
+        console.log(res.length)
+        res[i]=res[i].toString();
+        res[i]=(res[i].replace(/,/g,""))
+        if((res[i].startsWith('<'))){
+            console.log("true");
+            for(var j=i+1;j<=res.length;j++){
+                console.log(res[j])
+                // if((res[j].toString()).endsWith('>')){
+                //     console.log(res[j])
+                // }else{
+                //     console.log("err");
+                // }
+                
+            }
+        }else{
+            console.log("False")
+        }
+    }
+    
+}
+
+
+var fs=require('fs')
+
+var verifyTag=function(input){
+    input=(input.toString()).split(",")
+    for(i=0;i<input.length;i++){
+        console.log(input[i])
+        input[i]=(input[i].toString()).replace(' ',"")
+        if((input[i].startsWith('<'))&&(input[i].endsWith('>'))){
+            console.log("true");
+            var tagName;
+            if(input[i].slice(input[i].indexOf('<'),input[i].indexOf('>'))){
+                tagName=(input[i].slice(1,input[i].indexOf('>')))
+                console.log("hhhhhhh",tagName)
+            }else{
+                tagName=((input[i].substring(1,input[i].indexOf(' '))))
+                
+                console.log("hhhhhhh",tagName)
+            }
+            
+         }else{
+            console.log("False")
+         }
+    }
+    
+}
+
+fs.readFile("./lipsi.html","utf8",function(err,data){
+    if(err) throw err;
+    data=data.replace(/\n/g,", ");
+    data=data.replace(/  /g,"");
+    verifyTag(data)
+})
+
+
+
+
+
+
+//&&(res[i].endsWith('>'))
+
+
+
+
+// var res=(input.toString()).split(" ")
+// res[i]=res[i].toString();
+//         res[i]=(res[i].replace(/,/g,""))
+//     for(var j=i+1;j<=res.length;j++){
+        //         console.log(res[j])
+        //         // if((res[j].toString()).endsWith('>')){
+        //         //     console.log(res[j])
+        //         // }else{
+        //         //     console.log("err");
+        //         // }
+                
+        //     }
+
+
+
+
+                    value={"element":{"\n\tattributes":"{"+"\n\t\ttype:"+key+",\n\t\tid:"+tagName[i+2]+"\n}"}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var fs=require('fs')
+//var HashMap=require('hashmap')
+var i;
+var input=[];
+var inputOut=[],inputOut1=[];
+
+var verifyTag=function(inputData){
+    //console.log(inputData)
+    inputOut.push(inputData)
+    inputOut=(inputOut.toString()).trim().split(/[" "\n]/g)
+    inputOut1.push((inputOut.toString()).replace(/,,/g,"").trim())
+    console.log(inputOut1[0])
+     for(i=0;i<inputOut1.length;i++){
+         console.log("hhhhhh",inputOut1[0])
+    }
+
+}
+
+fs.readFile("./lipsi.html",'utf8',function(err,data){
+    if(err) throw err;
+    data=data.split("\n")
+    input.push(data)
+    verifyTag(input)
+})
+*/
