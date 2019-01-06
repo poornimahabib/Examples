@@ -1,0 +1,170 @@
+<html>
+
+<head>
+    <title>View Course Form</title>
+    <link rel="stylesheet" type="text/css" href="style_viewCourse.css">
+    <script src="1.js" type="text/javascript"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="style_listCourses.css"> -->
+</head>
+
+<body>
+    <div class="main">
+        <div class="head-nav">
+            <div class="two">
+                <img class="drop" src="2.png">
+            </div>
+            <div class="one">                
+                <img class="profile" src="1.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="course">
+            <div class="course_label_flex">
+                <label class="course_label">Course</label>
+            </div>
+            <div class="img_size_flex">
+                <div class="dropdown">
+                    <img onclick="myFunction()" class="dropbtn" src="3.png">
+                    <div id="myDropdown" class="dropdown-content">
+                        <div class="drop_list_edit">
+                            <label class="label_title">Edit</label>
+                            <p class="label_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                        </div>
+                        <div class="drop_list_publish">
+                            <label class="label_title">Publish</label>
+                            <p class="label_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                        </div>
+                        <div class="drop_list_retire">
+                            <label class="label_title">Retire</label>
+                            <p class="label_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                        </div>
+                        <div class="drop_list_delete">
+                            <label class="label_title">Delete</label>
+                            <p class="label_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="list">
+                <div class="course_list_flex">
+                    <label class="course_title">Climate Resilient Cities</label>
+                    <p class="course_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                </div>
+                <div class="status_flex">
+                    <input type="button" value="Draft" class="course_status">
+                </div>
+            </div>
+
+            <div class="learning_format">
+                <label class="format">Learning_format</label>
+                <select class="format_options">
+                    <option>Self Learning</option>
+                    <option>Online</option>
+                    <option>Combo</option>
+                </select>
+            </div>
+        
+            <div class="course">
+                <div class="course_label_flex">
+                    <label class="lesson_label">Lessons</label>
+                </div>
+            </div>
+
+            <div class="add_section">
+                <img src="add.png" class="section_img"><label class="section_label">ADD SECTION</label>
+            </div>
+            
+            <div class="course_list">
+                <div class="course_label_flex">
+                    <img src="2.png" class="size" >
+                    <label class="labelSec">INTRODUCTION TO CLIMATE CHANGE</label>
+                </div>
+                <div class="add_lesson">
+                    <input type="button" class="addlesson" value="ADD">
+                </div>
+            </div>
+
+
+            <div class="list1">
+                <div class="course_list_flex">
+                    <label class="course_title">Climate Resilient Cities</label>
+                    <p class="course_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                </div>
+                <div class="img_size_flex1">
+                    <div class="dropdown">
+                        <img onclick="myFunction1()" id="dropbtn1" class="dropbtn1" src="3.png"/>
+                        <div id="myDropdown1" class="dropdown-content1">
+                            <div class="drop_list_movedown">
+                                <label class="label_title">Move Down</label>
+                            </div>
+                            <div class="drop_list_moveup">
+                                <label class="label_title">Move Up</label>
+                            </div>
+                            <div class="drop_list_delete">
+                                <label class="label_title">Delete</label>
+                            </div>
+                            <div class="drop_list_edit">
+                                <label class="label_title">Edit</label>
+                            </div>
+                            <div class="drop_list_quiz">
+                                <label class="label_title">Quiz</label>
+                            </div>
+                            <div class="drop_list_resources">
+                                <label class="label_title">Resources</label>
+                            </div>
+                            <div class="drop_list_preview">
+                                <label class="label_title">Preview</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="time_flex">
+                    <label class="timeInMin">04:26</label>
+                </div>
+        
+            </div>
+
+        </div>
+
+    <script>
+     /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    } 
+            
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+    
+</script>
+<script>
+    var acc = document.getElementsByClassName("course_list");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        });
+    }
+    </script>            
+</body>
+</html>

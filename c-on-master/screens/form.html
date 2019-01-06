@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <title>Course Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="head-nav">
+            <div class="two">
+                <img class="drop" src="2.png">
+            </div>
+            <div class="one">                
+                <img class="profile" src="1.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="course">
+            <label class="hi">Course</label>
+        </div>
+        
+    <form class="add-course" id="add-course">
+            <div class="fail_msg" id="fail_msg" style="display:none">
+                    <div class="msg">
+                        <label class="fail" id="input_error">FIX THE INPUT</label>
+                        <p class="fail_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                        <br>
+                    </div>
+                </div>
+            <br><br>
+            <div>
+                <label><b>COURSE TITLE</b></label>
+                <br><br><input type="text" id="course_title" name="title" class="course_title" placeholder="Enter a Course Title"  required>
+            </div>
+            <br><br>
+            <div>
+                <label><b>LEARNING FORMAT</b></label>
+                <br><br><select id="format" class="format_option" name="format" >
+                    <option class="option_val" value="self">Self Learning</option>
+                    <option value="offline" class="option_val">Offline Coaching</option>
+                    <option value="combo" class="option_val">Combo</option>
+                </select>
+            </div>
+            <br><br>
+            <div>
+                <label><b>BREIFT INTRODUCTION ABOUT COURSE</b></label>
+                <br><br><textarea class="intro" id="intro" placeholder="Write Something Here" required></textarea>
+            </div>
+            <br><br>
+            <div>
+                <input type="button" onclick="add_course()" class="submit" id="submit" value="SUBMIT" >
+                <label class="cancel"><u>CANCEL</u></label>
+            </div>
+            <br><br>
+    </form>
+    <div class="success_msg" id="success_msg" style="display:none">
+            <div class="msg">
+                <label class="success">SUCCESS</label>
+                <p class="success_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+                <label class="next">NEXT ACTION</label>
+                <div class="next_options">
+                    <label class="next_action">SETUP LESSONS</label>
+                    <label class="next_action">VIEW COURSE</label>
+                    <label class="next_action" onclick="document.location.href='viewCourse.html'">GOTO COURSE LISTING</label>
+                </div><br>
+            </div>
+        </div>
+    
+</div>
+    
+
+<script>
+    var add_course=function(){
+        var x1=document.getElementById('fail_msg');
+        var title=document.getElementById('course_title').value;
+        console.log("title",title)
+        if(title===''){
+            //x1=document.getElementById('fail_msg');
+            x1.style.display="flex";
+        }else{
+            var cr=document.getElementById('add-course');
+            cr.style.display="none";
+            var x=document.getElementById('success_msg');
+            x.style.display="flex";
+            x1.style.display="none";
+        }
+        
+    }
+</script>
+</body>
+
+</html>

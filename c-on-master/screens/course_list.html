@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>List Courses</title>
+    <link rel="stylesheet" type="text/css" href="style_listCourse.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="head-nav">
+            <div class="two">
+                <img class="drop" src="2.png">
+            </div>
+            <div class="one">                
+                <img class="profile" src="1.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="course">
+            <div class="course_label_flex"><label class="course_label">Course</label></div>
+            <div class="search_flex"><input type="search" value="Search Course..." class="search_size"></div>
+            <div class="button_size_flex"><input type="button" onclick="newCourse()" value="New Course" class="button_size"></div>
+        </div>
+
+        <div class="list">
+            <div class="course_list_flex">
+                <label class="course_title">Climate Resilient Cities</label>
+                <p class="course_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+            </div>
+            <div class="status_flex">
+                <label class="course_status">
+                    <ul>
+                        <li class="draft">Draft</li>
+                    </ul>
+                </label>
+            </div>
+            <div class="time_flex">
+                <label class="created_on">CREATED ON</label>
+                <label class="time">6th July 2018</label>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function multiplyNode(node, count, deep) {
+            for (var i = 0, copy; i < count - 1; i++) {
+                copy = node.cloneNode(deep);
+                node.parentNode.insertBefore(copy, node);
+            }
+        }
+        multiplyNode(document.querySelector('.list'), 5, true)
+
+        function newCourse(){
+            document.location.href="form.html";
+        }
+    </script>
+</body>
+</html>

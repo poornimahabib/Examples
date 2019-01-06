@@ -1,0 +1,160 @@
+body{
+    background-color: #d8d7d7;
+    margin: 0;
+}
+
+div.head-nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    /* margin: 0px; */
+    background-color: #FFFFFF;
+    /* border: 1px solid aqua; */
+}
+
+.profile,.option_img{
+
+    height: 50px;
+    width: 50px;
+    top: 50px;
+    bottom: 50px
+}
+div.one,
+div.two {
+    display: grid;
+}
+
+.drop {
+    height: 40px;
+    width: 40px;
+
+}
+
+.box{
+    background-color: #FFFFFF;
+    display: flex;
+    margin: 25px;
+    padding: 20px;
+    flex-direction: column;
+    border-radius:10px;     
+}
+.box>* {
+    margin: 10px;
+}
+.course{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: auto;
+    
+}
+.hi{
+    margin-left: 20px;
+    border-bottom: 5px solid #32BDD2;
+    font-family: Roboto;
+    font-size: 32px
+}
+.add-course{
+    display: flex;
+    flex-flow: column;
+    
+}
+label{
+    margin-left: 20px;
+    font-family: Roboto;
+    font-size: 24px
+}
+.course_title{
+    width:700px;
+    height: 50px;
+    margin-left:20px;
+    border-radius: 10px;
+}
+.format_option{
+    width:600px;
+    margin-left:20px;
+    height: 50px;
+    border-color: #CECECE;
+    border-radius: 15px;
+}
+.intro{
+    height:200px;
+    width:700px;
+    margin-left:20px;
+    border-radius: 10px;
+}
+.submit{
+    margin-left:30px;
+    font-size: 18px;
+    background-color: #32BDD2;
+    color: #FFFFFF;
+    border-radius: 15px;
+    height: 50px;
+    width: 100px
+}
+.cancel{
+    font-size: 18px
+}
+.option_val{
+    height: 45px;
+    font-size: 16px;
+    background-color:#FFFFFF
+}
+.success_msg{
+    display: flex;
+    background-color: #BAE5D3;
+    margin: 30px;
+    border-radius:15px; 
+}
+.msg{
+    display: flex;
+    flex-flow: column;
+    align-self: auto;
+}
+.success{
+    font-size: 30px;
+    margin-left: 25px;
+    color: #3B6956;
+}
+.success_desc{
+    display: flex;
+    width: 600px;
+    margin-left: 25px;
+    color: #3B6956;
+    font-size: 24px;
+}
+.next{
+    font-size: 30px;
+    margin-left: 25px;
+    color: #3B6956;
+}
+.next_action{
+    font-size: 24px;
+    color: #3B6956;
+    align-self: center;
+    justify-self: center;
+}
+.next_options{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 10px;
+}
+.fail_msg{
+    display: flex;
+    background-color: #F7D1D1;
+    margin: 30px;
+    border-radius:15px;
+}
+.fail_desc{
+    display: flex;
+    margin-left: 25px;
+    color: #573030;
+    font-size: 24px;
+    align-content: flex-start;
+}
+.fail{
+    color: #573030;
+    font-size: 30px;
+    margin-left: 25px;
+}
