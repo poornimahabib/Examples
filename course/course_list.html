@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <title>List Courses</title>
+    <link rel="stylesheet" type="text/css" href="style_listCourse.css">
+    <script src="1.js" type="text/javascript"></script>
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+</head>
+
+<body>
+    <div class="main">
+        <div class="head-nav">
+            <div class="two">
+                <div class="dropdown">
+                    <img onclick="myFunction2()" id="drop" class="drop" src="2.png" />
+                    <div id="myDropdown2" class="dropdown-content2">
+                        <div class="drop_list_movedown">
+                            <label class="label_title">My profile</label>
+                        </div>
+                        <div class="drop_list_moveup">
+                            <label class="label_title">Notifications</label>
+                        </div>
+                        <div class="drop_list_delete">
+                            <label class="label_title">Settings</label>
+                        </div>
+                        <div class="drop_list_edit">
+                            <label class="label_title">Sign Out</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one">
+                <img class="profile" src="1.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="course">
+            <div class="course_label_flex"><label class="course_label">Courses</label></div>
+            <div class="search_flex"><input type="search" value="Search Course..." class="search_size"></div>
+            <div class="button_size_flex"><input type="button" onclick="newCourse()" value="New Course" class="button_size"></div>
+        </div>
+
+        <div class="list" ondblclick="next()" id="list">
+            <div class="course_list_flex">
+                <label class="course_title" onclick="next()">Climate Resilient Cities</label>
+                <p class="course_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque sapien sit amet risus elementum tincidunt.</p>
+            </div>
+            <div class="status_flex">
+                <label class="course_status">
+                    <ul>
+                        <li class="draft">Draft</li>
+                    </ul>
+                </label>
+            </div>
+            <div class="time_flex">
+                <label class="created_on">CREATED ON</label>
+                <label class="time">6th July 2018</label>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function multiplyNode(node, count, deep) {
+            for (var i = 0, copy; i < count - 1; i++) {
+                copy = node.cloneNode(deep);
+                node.parentNode.insertBefore(copy, node);
+            }
+        }
+        multiplyNode(document.querySelector('.list'), 5, true)
+
+        function newCourse(){
+            document.location.href="form.html";
+        }
+
+        function next(){
+            document.location.href="viewCourse.html";   
+        }
+    </script>
+</body>
+</html>
