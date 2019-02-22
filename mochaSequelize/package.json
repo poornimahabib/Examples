@@ -1,0 +1,23 @@
+{
+  "name": "mochasequelize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dbOperation.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.42.0",
+    "uniqid": "^5.0.3"
+  }
+}
