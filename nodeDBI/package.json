@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "node-dbi": "^0.7.1",
-    "validator": "^10.9.0"
+    "validator": "^13.7.0"
   }
 }
